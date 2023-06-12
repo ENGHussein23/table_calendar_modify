@@ -7,6 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData.dark(),
       title: 'Table Calendar Demo',
       home: CalendarPage(),
     );
@@ -17,7 +18,6 @@ class CalendarPage extends StatefulWidget {
   @override
   _CalendarPageState createState() => _CalendarPageState();
 }
-
 class _CalendarPageState extends State<CalendarPage> {
   CalendarFormat _calendarFormat = CalendarFormat.month;
   DateTime _focusedDay = DateTime.now();
@@ -58,13 +58,19 @@ class _CalendarPageState extends State<CalendarPage> {
             eventLoader: _getEvents,
             calendarStyle: CalendarStyle(
               selectedDecoration: BoxDecoration(
-                color: Colors.red,
+                color: Colors.green,
                 shape: BoxShape.rectangle,
               ),
               markerDecoration: BoxDecoration(
-                color: Colors.red,
+                color: Color.fromARGB(100, 255, 0, 0),
                 shape: BoxShape.rectangle,
               ),
+              todayDecoration: BoxDecoration(
+                color: Colors.blue,
+                shape: BoxShape.rectangle,
+              ),
+                markersAnchor: 1,
+              markerSize: 42
             ),
           ),
           SizedBox(height: 20),
